@@ -1,6 +1,9 @@
 HELP.md
 target/
 
+.mvn/*
+.idea/*
+
 src/main/resources/extrato_produto/
 
 !.mvn/wrapper/maven-wrapper.jar
