@@ -1,0 +1,32 @@
+
+create schema dbo;
+
+select * from categoria_produto
+
+create table categoria_produto(
+id int not null primary key,
+dat_insercao date,
+dat_hora_ult_modif_reg date,
+usuario_ult_modif varchar(200),
+descricao_categoria varchar(100) not null
+)
+
+
+select * from produto
+
+create table produto(
+id int not null primary key,
+dat_insercao date,
+dat_hora_ult_modif_reg date,
+usuario_ult_modif varchar(200),
+nome varchar(200) not null,
+dat_hora_entrada date,
+dat_hora_saida date,
+categoria_produto varchar(100),
+descricao varchar,
+preco_compra float,
+preco_medio float,
+preco_venda float,
+validade_lote_data date,
+qtd_lote int
+)

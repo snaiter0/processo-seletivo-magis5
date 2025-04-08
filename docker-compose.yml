@@ -1,0 +1,44 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-logistica-estoque
+    restart: no
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: logistica
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    ports:
+      - "3306:3306"
+    networks:
+      - logistica-network
+  flyway-repair:
+    image: maven:3.9.9-amazoncorretto-21
+    container_name: flyway-repair
+    working_dir: /app
+    volumes:
+      - .:/app
+    networks:
+      - logistica-network
+    command: sh -c "mvn flyway:repair && mvn flyway:migrate"
+    depends_on:
+      - mysql
+  logistica-service:
+    build: .
+    container_name: logistica-estoque-logistica-service
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/logistica
+      SPRING_DATASOURCE_USERNAME: test
+      SPRING_DATASOURCE_PASSWORD: test
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+    depends_on:
+      - mysql
+      - flyway-repair
+    networks:
+      - logistica-network
+
+networks:
+  logistica-network:
+    driver: bridge

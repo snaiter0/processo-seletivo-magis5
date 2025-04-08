@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: logistica API
+  output:
+    ansi:
+      enabled: always
+
+  #Spring jpa do hibernate:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+#Spring datasource mysql configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/logistica
+    username: test
+    password: test
+    driverClassName: com.mysql.cj.jdbc.Driver
+  data:
+    jdbc:
+      dialect: mysql
+
+  # application-default:properties
+  profiles:
+    active: ${AMBIENTE:default}
+
+# Swaggerdoc configurations
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+
+#logs
+logging:
+  level:
+    root: info
+  file:
+    name: app.log
+# Trace
+# Debug
+# Info
+# Warn
+# Error
