@@ -75,7 +75,7 @@ class LogisticaControllerTest {
         CadastroBebidasRequisicao requisicao = new CadastroBebidasRequisicao(Set.of(bebidaDto), UUID.randomUUID());
 
         Mockito.when(service.cadastroBebidas(requisicao)).thenReturn(List.of());
-        Mockito.when(responseMapper.toCadastroBebidasResposta(Mockito.any())).thenReturn(new CadastroBebidasResposta(List.of()));
+        Mockito.when(responseMapper.toCadastroBebidasResposta(Mockito.any())).thenReturn(new CadastrarBebidasResposta(List.of()));
 
         mockMvc.perform(post("/logistica/api/v1/estoque/secao/bebida")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -238,7 +238,7 @@ class LogisticaControllerTest {
                                 .tipoBebida(TipoBebidaEnum.ALCOOLICA)
                                 .build()))
                         .build())).build()); // Idem
-        var resposta = new CadastroExtratoBebidasResposta(ExtratoBebidaDto.builder()
+        var resposta = new CadastrarExtratoBebidasResposta(ExtratoBebidaDto.builder()
                 .dataRegistroExtrato(LocalDateTime.now())
                 .secoesHistorico(List.of(SecaoHistoricoDto.builder()
                         .capacidadeArmazenamentoAlcool(400)

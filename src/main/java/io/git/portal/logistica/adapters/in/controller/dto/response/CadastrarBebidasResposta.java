@@ -5,6 +5,6 @@ import io.git.portal.logistica.application.dtos.CadastroBebidasSaida;
 
 import java.util.List;
 
-public record CadastroBebidasResposta(@JsonProperty(value = "cadastros_bebidas")
+public record CadastrarBebidasResposta(@JsonProperty(value = "cadastros_bebidas")
                                       List<CadastroBebidasSaida> cadastrosBebidasSaidas) {
 }

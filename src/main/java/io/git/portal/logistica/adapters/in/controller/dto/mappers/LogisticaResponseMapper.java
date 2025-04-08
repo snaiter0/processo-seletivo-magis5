@@ -13,8 +13,8 @@ public interface LogisticaResponseMapper {
 
     ConsultarExtratoBebidaResposta toConsultarExtratoBebidaResposta(ConsultarExtratosBebidaSaida consultarExtratosBebidaSaida);
 
-    default CadastroBebidasResposta toCadastroBebidasResposta(List<CadastroBebidasSaida> cadastroBebidasSaida){
-        return new CadastroBebidasResposta(cadastroBebidasSaida);
+    default CadastrarBebidasResposta toCadastroBebidasResposta(List<CadastroBebidasSaida> cadastroBebidasSaida){
+        return new CadastrarBebidasResposta(cadastroBebidasSaida);
     }
 
     ConsultarVolumeTotalPorTipoBebidaResposta toConsultarVolumeTotalPorTipoBebidaResposta(ConsultarVolumeBebidaTotalPorTipoSaida consultarVolumeBebidaTotalPorTipoSaida);
@@ -24,5 +24,5 @@ public interface LogisticaResponseMapper {
     @Mapping(target = "volumeBebidaDisponivelVendaPorSecaoResposta", source = "volumeBebidaDisponivelVendaPorSecaoDtos")
     ConsultarSecoesBebidaDisponiveisVendaPorTipoResposta toConsultarSecoesBebidaDisponiveisVendaPorTipoResposta(ConsultarVolumeBebidaDisponivelVendaPorTipoSaida consultarVolumeBebidaDisponivelVendaPorTipoSaida);
 
-    CadastroExtratoBebidasResposta toCadastroExtratoBebidasResponse(CadastroExtratoBebidasSaida cadastroExtratoBebidasSaida);
+    CadastrarExtratoBebidasResposta toCadastroExtratoBebidasResponse(CadastroExtratoBebidasSaida cadastroExtratoBebidasSaida);
 }

@@ -41,7 +41,7 @@ public class LogisticaController {
                             schema = @Schema(implementation = ConsultarVolumeTotalPorTipoBebidaResposta.class)))
     })
     @PostMapping(value = Rotas.Bebida.BEBIDA, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CadastroBebidasResposta> cadastrarBebidas(@RequestBody @NotNull CadastroBebidasRequisicao cadastroBebidasRequisicao){
+    public ResponseEntity<CadastrarBebidasResposta> cadastrarBebidas(@RequestBody @NotNull CadastroBebidasRequisicao cadastroBebidasRequisicao){
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 logisticaResponseMapper.toCadastroBebidasResposta(
                     service.cadastroBebidas(cadastroBebidasRequisicao)));
@@ -120,10 +120,10 @@ public class LogisticaController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Extrato cadastrado com sucesso",
                     content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = CadastroExtratoBebidasResposta.class)))
+                            schema = @Schema(implementation = CadastrarExtratoBebidasResposta.class)))
     })
     @PostMapping(value = Rotas.Extrato.EXTRATO)
-    public ResponseEntity<CadastroExtratoBebidasResposta> cadastrarExtratoBebida(@RequestBody @NotNull CadastroExtratoBebidasRequisicao request){
+    public ResponseEntity<CadastrarExtratoBebidasResposta> cadastrarExtratoBebida(@RequestBody @NotNull CadastroExtratoBebidasRequisicao request){
         return montarResposta(HttpStatus.CREATED, logisticaResponseMapper.toCadastroExtratoBebidasResponse(
                 service.cadastrarExtratoBebida(request)));
     }

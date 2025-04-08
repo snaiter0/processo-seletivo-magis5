@@ -5,7 +5,7 @@ import io.git.portal.logistica.application.dtos.ExtratoBebidaDto;
 import lombok.Builder;
 
 @Builder
-public record CadastroExtratoBebidasResposta(
+public record CadastrarExtratoBebidasResposta(
         @JsonProperty(value = "extrato_bebida")
         ExtratoBebidaDto extratoBebidaDto) {
 }
